@@ -135,3 +135,34 @@ def predict(username: str, clf, le: LabelEncoder,
     pred_idx = clf.predict(numeric)[0]
     pred     = le.classes_[pred_idx]
     return pred.lower() == username.lower(), pred
+
+
+# ── Entry point ───────────────────────────────────────────────────────────────
+
+def main():
+    print("=" * 50)
+    print("  Facial Recognition Model")
+    print("=" * 50)
+
+    if not FEAT_FILE.exists():
+        print(f"Feature file not found: {FEAT_FILE}")
+        print("Run Task 2 in the notebook first to generate image_features.csv.")
+        return
+
+    df = pd.read_csv(FEAT_FILE)
+    print(f"Loaded   : {df.shape[0]} rows x {df.shape[1]} columns")
+    print(f"Classes  : {sorted(df['member'].unique())}")
+    print(f"Images   : {df['file_name'].nunique()} unique files x "
+          f"{df['augmentation'].nunique()} augmentations")
+    print()
+
+    X, y, le    = prepare(df)
+    print(f"Features : {X.shape[1]} numeric  |  Samples : {X.shape[0]}")
+    print()
+    clf, metrics = train(X, y)
+    print()
+    save(clf, le, metrics)
+
+
+if __name__ == "__main__":
+    main()
