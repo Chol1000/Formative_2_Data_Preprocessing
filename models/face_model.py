@@ -120,3 +120,18 @@ def save(clf, le: LabelEncoder, metrics: dict, out_dir: Path = OUT_DIR):
     with open(metrics_file, "w") as fh:
         json.dump(existing, fh, indent=2)
     print(f"  Saved: {metrics_file}")
+
+
+def predict(username: str, clf, le: LabelEncoder,
+            feat_df: pd.DataFrame) -> tuple[bool, str]:
+    """
+    Predict whether a username matches their stored image features.
+    Returns (is_match: bool, predicted_member: str).
+    """
+    rows = feat_df[feat_df["member"].str.lower() == username.lower()]
+    if rows.empty:
+        return False, "unknown"
+    numeric  = rows.select_dtypes(include="number").mean(axis=0).values.reshape(1, -1)
+    pred_idx = clf.predict(numeric)[0]
+    pred     = le.classes_[pred_idx]
+    return pred.lower() == username.lower(), pred
