@@ -37,3 +37,17 @@ METRICS_FILE = OUT_DIR / "model_metrics.json"
 
 META_COLS = {"file_name", "augmentation", "expression"}
 
+# ── Importable functions ──────────────────────────────────────────────────────
+
+def prepare(df: pd.DataFrame, target: str = "member"):
+    """
+    Drop image metadata columns, keep numeric features, label-encode target.
+    Returns (X: ndarray, y: ndarray, encoder: LabelEncoder).
+    """
+    d     = df.copy()
+    y_raw = d.pop(target)
+    d     = d.drop(columns=[c for c in META_COLS if c in d.columns], errors="ignore")
+    d     = d.select_dtypes(include="number").fillna(d.median(numeric_only=True))
+    le    = LabelEncoder()
+    y     = le.fit_transform(y_raw.astype(str))
+    return d.values.astype(float), y, le
