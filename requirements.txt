@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+joblib
+matplotlib
+seaborn
+opencv-python
+Pillow
+librosa
+soundfile
+scipy
+tqdm
+xgboost
