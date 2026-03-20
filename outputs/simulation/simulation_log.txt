@@ -1,0 +1,155 @@
+2026-03-17 01:05:12 | ACCESS_GRANTED | user=member1            | step=success | product=Groceries
+2026-03-17 01:05:16 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 01:05:16 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-17 12:15:52 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-17 12:16:17 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 12:16:17 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-17 12:48:08 | ACCESS_GRANTED | user=member1            | step=success | product=Clothing
+2026-03-17 12:48:11 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 12:48:11 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-17 13:38:57 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-17 13:39:01 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 13:39:01 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-17 13:44:10 | ACCESS_GRANTED | user=member1            | step=success | product=Books
+2026-03-17 13:44:10 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 13:44:10 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-17 13:44:50 | ACCESS_GRANTED | user=member1            | step=success | product=Groceries
+2026-03-17 13:44:50 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 13:44:50 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-17 13:45:09 | ACCESS_GRANTED | user=member1            | step=success | product=Sports
+2026-03-17 13:45:09 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 13:45:09 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-17 13:48:47 | ACCESS_GRANTED | user=member2            | step=success | product=Sports
+2026-03-17 13:49:00 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-17 13:49:00 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-18 01:27:27 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-18 01:27:27 | ACCESS_GRANTED | user=member2            | step=success | product=Books
+2026-03-18 01:27:27 | ACCESS_GRANTED | user=member3            | step=success | product=Groceries
+2026-03-18 01:27:59 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 01:27:59 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-18 01:42:23 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-18 01:42:23 | ACCESS_GRANTED | user=member2            | step=success | product=Books
+2026-03-18 01:42:23 | ACCESS_GRANTED | user=member3            | step=success | product=Groceries
+2026-03-18 01:42:54 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 01:42:54 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-18 02:01:25 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-18 02:01:25 | ACCESS_GRANTED | user=member2            | step=success | product=Books
+2026-03-18 02:01:25 | ACCESS_GRANTED | user=member3            | step=success | product=Groceries
+2026-03-18 02:01:32 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 02:01:32 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-18 02:06:12 | ACCESS_GRANTED | user=member1      | step=success | product=Electronics
+2026-03-18 02:06:12 | ACCESS_GRANTED | user=member2      | step=success | product=Books
+2026-03-18 02:06:12 | ACCESS_GRANTED | user=member3      | step=success | product=Sports
+2026-03-18 02:06:12 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-18 02:06:12 | ACCESS_DENIED | user=member1      | step=voice_failed
+2026-03-18 02:07:01 | ACCESS_GRANTED | user=member2      | step=success | product=Books
+2026-03-18 02:07:22 | ACCESS_DENIED | user=member4      | step=face_failed
+2026-03-18 02:07:46 | ACCESS_DENIED | user=member3      | step=voice_failed
+2026-03-18 02:07:52 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-18 02:07:52 | ACCESS_DENIED | user=member1      | step=voice_failed
+2026-03-18 02:08:01 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-18 02:08:01 | ACCESS_DENIED | user=member1      | step=voice_failed
+2026-03-18 02:09:59 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-18 02:09:59 | ACCESS_DENIED | user=member1      | step=voice_failed
+2026-03-18 02:12:50 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-18 02:12:56 | ACCESS_DENIED | user=member1      | step=voice_failed
+2026-03-18 02:13:22 | ACCESS_GRANTED | user=member1      | step=success | product=Sports
+2026-03-18 02:13:22 | ACCESS_GRANTED | user=member2      | step=success | product=Groceries
+2026-03-18 02:13:22 | ACCESS_GRANTED | user=member3      | step=success | product=Books
+2026-03-18 02:13:22 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-18 02:13:22 | ACCESS_DENIED | user=member1      | step=voice_failed
+2026-03-18 02:14:03 | ACCESS_GRANTED | user=member1      | step=success | product=Clothing
+2026-03-18 02:14:13 | ACCESS_DENIED | user=member4      | step=face_failed
+2026-03-18 02:14:42 | ACCESS_DENIED | user=member1      | step=voice_failed
+2026-03-18 03:12:43 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-18 03:12:43 | ACCESS_GRANTED | user=member2            | step=success | product=Books
+2026-03-18 03:12:44 | ACCESS_GRANTED | user=member3            | step=success | product=Groceries
+2026-03-18 03:12:49 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 03:12:49 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-18 03:20:19 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-18 03:20:19 | ACCESS_GRANTED | user=member2            | step=success | product=Books
+2026-03-18 03:20:20 | ACCESS_GRANTED | user=member3            | step=success | product=Groceries
+2026-03-18 03:20:25 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 03:20:25 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-18 03:26:30 | ACCESS_GRANTED | user=member1            | step=success | product=Electronics
+2026-03-18 03:26:30 | ACCESS_GRANTED | user=member2            | step=success | product=Books
+2026-03-18 03:26:30 | ACCESS_GRANTED | user=member3            | step=success | product=Groceries
+2026-03-18 03:26:34 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 03:26:34 | ACCESS_DENIED | user=member1            | step=voice_failed
+2026-03-18 14:25:02 | ACCESS_GRANTED | user=chol               | step=success | product=Groceries
+2026-03-18 14:25:02 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-18 14:25:02 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-18 14:25:15 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 14:25:15 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-18 14:25:23 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 14:25:23 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-18 14:26:48 | ACCESS_GRANTED | user=chol         | step=success | product=Groceries
+2026-03-18 14:27:47 | ACCESS_DENIED | user=Nziza        | step=voice_failed
+2026-03-18 14:48:32 | ACCESS_GRANTED | user=chol               | step=success | product=Books
+2026-03-18 14:48:32 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-18 14:48:33 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-18 14:48:41 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 14:48:41 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-18 14:59:17 | ACCESS_GRANTED | user=chol               | step=success | product=Books
+2026-03-18 14:59:17 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-18 14:59:17 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-18 14:59:25 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 14:59:25 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-18 16:35:15 | ACCESS_GRANTED | user=chol               | step=success | product=Books
+2026-03-18 16:35:15 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-18 16:35:15 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-18 16:35:23 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 16:35:23 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-18 16:35:31 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 16:35:31 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-18 16:35:40 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-18 16:35:40 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-19 15:23:14 | ACCESS_GRANTED | user=chol         | step=success | product=Electronics
+2026-03-19 15:23:14 | ACCESS_GRANTED | user=ineza        | step=success | product=Clothing
+2026-03-19 15:23:14 | ACCESS_GRANTED | user=nziza        | step=success | product=Sports
+2026-03-19 15:26:06 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-19 15:26:06 | ACCESS_DENIED | user=chol         | step=voice_failed
+2026-03-19 21:31:36 | ACCESS_GRANTED | user=Ineza        | step=success | product=Electronics
+2026-03-19 21:32:21 | ACCESS_DENIED | user=John         | step=face_failed
+2026-03-19 21:32:59 | ACCESS_GRANTED | user=Nziza        | step=success | product=Books
+2026-03-19 21:33:19 | ACCESS_DENIED | user=nziza        | step=voice_failed
+2026-03-20 09:33:35 | ACCESS_GRANTED | user=chol               | step=success | product=Books
+2026-03-20 09:33:35 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-20 09:33:35 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-20 09:33:41 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-20 09:33:41 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-20 09:51:30 | ACCESS_GRANTED | user=chol               | step=success | product=Books
+2026-03-20 09:51:30 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-20 09:51:30 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-20 09:51:39 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-20 09:51:39 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-20 10:16:52 | ACCESS_GRANTED | user=chol               | step=success | product=Books
+2026-03-20 10:16:52 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-20 10:16:52 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-20 10:16:58 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-20 10:16:58 | ACCESS_DENIED | user=chol               | step=voice_failed
+2026-03-20 11:25:10 | ACCESS_GRANTED | user=chol         | step=success | product=Sports
+2026-03-20 11:25:10 | ACCESS_GRANTED | user=ineza        | step=success | product=Electronics
+2026-03-20 11:25:10 | ACCESS_GRANTED | user=nziza        | step=success | product=Groceries
+2026-03-20 11:25:10 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-20 11:25:10 | ACCESS_DENIED | user=chol         | step=voice_failed
+2026-03-20 11:31:24 | ACCESS_GRANTED | user=chol         | step=success | product=Groceries
+2026-03-20 11:31:24 | ACCESS_GRANTED | user=ineza        | step=success | product=Sports
+2026-03-20 11:31:24 | ACCESS_GRANTED | user=nziza        | step=success | product=Groceries
+2026-03-20 11:31:24 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-20 11:31:24 | ACCESS_DENIED | user=chol         | step=voice_failed
+2026-03-20 11:31:56 | ACCESS_GRANTED | user=chol         | step=success | product=Sports
+2026-03-20 11:31:57 | ACCESS_GRANTED | user=ineza        | step=success | product=Clothing
+2026-03-20 11:31:57 | ACCESS_GRANTED | user=nziza        | step=success | product=Books
+2026-03-20 11:31:57 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-20 11:31:57 | ACCESS_DENIED | user=chol         | step=voice_failed
+2026-03-20 11:32:14 | ACCESS_DENIED | user=intruder_x   | step=face_failed
+2026-03-20 11:32:14 | ACCESS_DENIED | user=chol         | step=voice_failed
+2026-03-20 11:34:09 | ACCESS_DENIED | user=chol         | step=voice_failed
+2026-03-20 11:34:23 | ACCESS_DENIED | user=2            | step=face_failed
+2026-03-20 11:34:44 | ACCESS_GRANTED | user=nziza        | step=success | product=Clothing
+2026-03-20 12:13:18 | ACCESS_GRANTED | user=chol               | step=success | product=Books
+2026-03-20 12:13:18 | ACCESS_GRANTED | user=ineza              | step=success | product=Sports
+2026-03-20 12:13:18 | ACCESS_GRANTED | user=nziza              | step=success | product=Sports
+2026-03-20 12:13:29 | ACCESS_DENIED | user=intruder_x         | step=face_failed
+2026-03-20 12:13:29 | ACCESS_DENIED | user=chol               | step=voice_failed
