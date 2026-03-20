@@ -1,0 +1,16 @@
+# ── Audio files — treat as binary ─────────────────────────────────────────────
+*.m4a   binary
+*.mp3   binary
+*.wav   binary
+*.flac  binary
+*.ogg   binary
+
+# ── Image files — treat as binary ─────────────────────────────────────────────
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.bmp   binary
+*.gif   binary
+
+# ── Notebooks — use nbdiff-friendly settings ──────────────────────────────────
+*.ipynb text eol=lf
