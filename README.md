@@ -274,22 +274,38 @@ Three derived features are added after merging:
 Division guards of `1e-9` prevent zero-division errors. The final dataset has
 **213 rows, 11 columns, zero null values**.
 
-### EDA findings
+### EDA visualisations
 
-- **Distributions** — engagement scores are uniformly distributed (50–99); purchase amounts
-  are approximately normal (mean ≈ 290); the two ratio features are right-skewed as expected.
-- **Class balance** — Sports is the most frequent category (59 rows, 28%); Clothing is the
-  least frequent (33 rows, 15%). Ratio 1.79 — moderate imbalance handled with
-  `class_weight="balanced"`.
-- **Correlations** — strongest pairs: purchase_amount ↔ purchase_per_engagement (r = 0.87),
-  purchase_interest_score ↔ high_interest (r = 0.86), customer_rating ↔ value_per_rating
-  (r = −0.73). All feature-to-target correlations are below 0.10.
-- **Outliers** — moderate outliers in `purchase_per_engagement` and `value_per_rating`
-  (ratio amplification). No removal applied; Random Forest is robust to extreme values.
+**Feature distributions** — engagement scores are uniformly distributed (50–99); purchase
+amounts approximately normal (mean ≈ 290); ratio features right-skewed as expected.
+
+![Feature Distributions](outputs/eda/distributions.png)
+
+**Product class balance** — Sports is most frequent (59 rows, 28%); Clothing is least
+frequent (33 rows, 15%). Moderate imbalance (ratio 1.79) handled with `class_weight="balanced"`.
+
+![Category Analysis](outputs/eda/category_analysis.png)
+
+**Pearson correlation heatmap** — strongest pairs: purchase_amount ↔ purchase_per_engagement
+(r = 0.87), purchase_interest_score ↔ high_interest (r = 0.86), customer_rating ↔
+value_per_rating (r = −0.73). All feature-to-target correlations below 0.10.
+
+![Correlation Matrix](outputs/eda/correlation_matrix.png)
+
+**Outlier detection** — moderate outliers in `purchase_per_engagement` and `value_per_rating`
+due to ratio amplification. No removal applied; Random Forest is robust to extreme values.
+
+![Outlier Box Plots](outputs/eda/outliers.png)
 
 ---
 
 ## 7. Task 2 — Facial Image Collection and Processing
+
+### Member facial images
+
+All nine base images — three members, three expressions each.
+
+![All Facial Images](outputs/image_processing/all_images.png)
 
 ### Augmentation
 
@@ -304,6 +320,8 @@ per image and **45 total rows** in `features/image_features.csv`:
 | `grayscale` | BGR → greyscale, replicated to 3 channels (`cv2.cvtColor`) |
 | `brightened` | Pixel values increased by 30, clipped at 255 (NumPy) |
 
+![Full Augmentation Matrix](outputs/image_processing/augmentations_all_members.png)
+
 ### Feature extraction
 
 **20 numeric features** per image saved to `features/image_features.csv` (45 × 24):
@@ -311,11 +329,21 @@ per image and **45 total rows** in `features/image_features.csv`:
 - 4 intensity statistics: `mean_intensity`, `std_intensity`, `min_intensity`, `max_intensity`
 - 16-bin normalised pixel histogram: `hist_bin_00` through `hist_bin_15`
 
-The 4 metadata columns are `member`, `expression`, `file_name`, `augmentation`.
+The pairwise scatter plot below confirms the 20 features separate the three members in
+feature space before any model training — explaining the later 97.78% face model accuracy.
+
+![Feature Separability](outputs/image_processing/feature_separability.png)
 
 ---
 
 ## 8. Task 3 — Audio Collection and Processing
+
+### Audio visualisation
+
+Waveforms and mel spectrograms for all six original recordings, showing distinct acoustic
+profiles per member.
+
+![Waveforms and Spectrograms](outputs/audio_processing/waveforms_and_spectrograms.png)
 
 ### Augmentation
 
@@ -329,6 +357,8 @@ per clip and **30 total rows** in `features/audio_features.csv`:
 | `time_stretch` | Duration stretched by factor 1.15, pitch unchanged |
 | `pitch_shift_up` | Pitch shifted +2 semitones |
 | `pitch_shift_dn` | Pitch shifted −2 semitones |
+
+![Audio Augmentation Variants](outputs/audio_processing/augmentation_demo.png)
 
 ### Feature extraction
 
@@ -363,8 +393,17 @@ Final models are fitted on the full dataset after evaluation.
 
 The product model's 45.04% accuracy represents a **125% improvement over random chance**
 (20% baseline for 5 classes) and a **63% improvement over the majority-class baseline**
-(27.7% for always predicting Sports). The moderate accuracy reflects the weak feature-target
-signal in the tabular data (max Pearson correlation 0.10), not a failure of the model.
+(27.7% for always predicting Sports).
+
+![Model Comparison](outputs/trained_models/model_comparison.png)
+
+### Predicted vs actual — all three models
+
+![Face Model Predictions](outputs/trained_models/face_predictions.png)
+
+![Voice Model Predictions](outputs/trained_models/voice_predictions.png)
+
+![Product Model Predictions](outputs/trained_models/product_predictions.png)
 
 ### Hyperparameter tuning (product model)
 
@@ -422,9 +461,9 @@ Two attack vectors are tested, each blocked at a different gate:
 Every event is appended to `outputs/simulation/simulation_log.txt`:
 
 ```
-2026-03-19 15:23:14 | ACCESS_GRANTED | user=chol    | step=success      | product=Electronics
+2026-03-19 15:23:14 | ACCESS_GRANTED | user=chol       | step=success    | product=Electronics
 2026-03-19 15:26:06 | ACCESS_DENIED  | user=intruder_x | step=face_failed
-2026-03-19 15:26:06 | ACCESS_DENIED  | user=chol    | step=voice_failed
+2026-03-19 15:26:06 | ACCESS_DENIED  | user=chol       | step=voice_failed
 ```
 
 ---
