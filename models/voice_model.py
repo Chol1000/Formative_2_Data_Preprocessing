@@ -59,3 +59,53 @@ def prepare(df: pd.DataFrame, target: str = "member"):
     y     = le.fit_transform(y_raw.astype(str))
     return d.values.astype(float), y, le
 
+
+def train(X: np.ndarray, y: np.ndarray, n_estimators: int = 200):
+    """
+    Stratified K-Fold CV (up to 5 folds) with a balanced RandomForest.
+    Prints accuracy, F1-weighted, and log-loss on a held-out split.
+    Fits a final model on all data and returns (classifier, metrics_dict).
+    """
+    min_class = int(min(np.bincount(y)))
+    n_splits  = max(2, min(5, min_class))
+    cv        = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
+    clf       = RandomForestClassifier(
+        n_estimators=n_estimators, class_weight="balanced", random_state=42
+    )
+    res = cross_validate(clf, X, y, cv=cv, scoring=["accuracy", "f1_weighted"])
+
+    acc_mean = float(np.mean(res["test_accuracy"]))
+    acc_std  = float(np.std(res["test_accuracy"]))
+    f1_mean  = float(np.mean(res["test_f1_weighted"]))
+    f1_std   = float(np.std(res["test_f1_weighted"]))
+
+    print(f"  CV folds     : {n_splits}")
+    print(f"  Accuracy     : {acc_mean:.4f}  (+/- {acc_std:.4f})")
+    print(f"  F1 weighted  : {f1_mean:.4f}  (+/- {f1_std:.4f})")
+
+    ll = None
+    if min_class >= 2:
+        Xtr, Xte, ytr, yte = train_test_split(
+            X, y, test_size=0.2, stratify=y, random_state=42
+        )
+        clf_tmp = RandomForestClassifier(
+            n_estimators=n_estimators, class_weight="balanced", random_state=42
+        ).fit(Xtr, ytr)
+        ll = round(log_loss(yte, clf_tmp.predict_proba(Xte)), 4)
+        print(f"  Log loss     : {ll}")
+
+    clf.fit(X, y)
+
+    metrics = {
+        "model"            : "Voiceprint Verification",
+        "cv_folds"         : n_splits,
+        "accuracy_mean"    : round(acc_mean, 4),
+        "accuracy_std"     : round(acc_std,  4),
+        "f1_weighted_mean" : round(f1_mean,  4),
+        "f1_weighted_std"  : round(f1_std,   4),
+        "log_loss"         : ll,
+        "n_samples"        : int(len(y)),
+        "n_features"       : int(X.shape[1]),
+    }
+    return clf, metrics
+
