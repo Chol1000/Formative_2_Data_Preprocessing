@@ -109,3 +109,23 @@ def train(X: np.ndarray, y: np.ndarray, n_estimators: int = 200):
     }
     return clf, metrics
 
+
+def save(clf, le: LabelEncoder, metrics: dict, out_dir: Path = OUT_DIR):
+    """Serialise model, label encoder, and metrics to out_dir."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    joblib.dump(clf, out_dir / "voice_model.pkl")
+    joblib.dump(le,  out_dir / "voice_encoder.pkl")
+    print(f"  Saved: {out_dir / 'voice_model.pkl'}")
+    print(f"  Saved: {out_dir / 'voice_encoder.pkl'}")
+
+    # Update model_metrics.json — preserve entries from other models
+    metrics_file = out_dir / "model_metrics.json"
+    existing = {}
+    if metrics_file.exists():
+        with open(metrics_file) as fh:
+            existing = json.load(fh)
+    existing["voiceprint_verification"] = metrics
+    with open(metrics_file, "w") as fh:
+        json.dump(existing, fh, indent=2)
+    print(f"  Saved: {metrics_file}")
+
