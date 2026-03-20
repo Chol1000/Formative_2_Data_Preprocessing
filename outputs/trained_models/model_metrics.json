@@ -1,0 +1,35 @@
+{
+  "facial_recognition": {
+    "model": "Facial Recognition",
+    "cv_folds": 5,
+    "accuracy_mean": 0.9778,
+    "accuracy_std": 0.0444,
+    "f1_weighted_mean": 0.9771,
+    "f1_weighted_std": 0.0457,
+    "log_loss": 0.1088,
+    "n_samples": 45,
+    "n_features": 20
+  },
+  "voiceprint_verification": {
+    "model": "Voiceprint Verification",
+    "cv_folds": 5,
+    "accuracy_mean": 0.9333,
+    "accuracy_std": 0.1333,
+    "f1_weighted_mean": 0.9333,
+    "f1_weighted_std": 0.1333,
+    "log_loss": 0.4407,
+    "n_samples": 30,
+    "n_features": 32
+  },
+  "product_recommendation": {
+    "model": "Product Recommendation",
+    "cv_folds": 5,
+    "accuracy_mean": 0.4504,
+    "accuracy_std": 0.0363,
+    "f1_weighted_mean": 0.4395,
+    "f1_weighted_std": 0.0425,
+    "log_loss": 1.3335,
+    "n_samples": 213,
+    "n_features": 9
+  }
+}
