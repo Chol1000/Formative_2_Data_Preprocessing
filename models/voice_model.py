@@ -150,3 +150,34 @@ def predict(phrase: str, username: str, clf, le: LabelEncoder,
     pred     = le.classes_[pred_idx]
     return pred.lower() == username.lower(), pred
 
+
+# ── Entry point ───────────────────────────────────────────────────────────────
+
+def main():
+    print("=" * 50)
+    print("  Voiceprint Verification Model")
+    print("=" * 50)
+
+    if not FEAT_FILE.exists():
+        print(f"Feature file not found: {FEAT_FILE}")
+        print("Run Task 3 in the notebook first to generate audio_features.csv.")
+        return
+
+    df = pd.read_csv(FEAT_FILE)
+    print(f"Loaded   : {df.shape[0]} rows x {df.shape[1]} columns")
+    print(f"Classes  : {sorted(df['member'].unique())}")
+    print(f"Clips    : {df['file_name'].nunique()} unique files x "
+          f"{df['augmentation'].nunique()} augmentations")
+    print(f"Phrases  : {sorted(df['phrase'].unique()) if 'phrase' in df.columns else 'N/A'}")
+    print()
+
+    X, y, le     = prepare(df)
+    print(f"Features : {X.shape[1]} numeric  |  Samples : {X.shape[0]}")
+    print()
+    clf, metrics = train(X, y)
+    print()
+    save(clf, le, metrics)
+
+
+if __name__ == "__main__":
+    main()
